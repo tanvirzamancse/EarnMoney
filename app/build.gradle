@@ -1,0 +1,142 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.tzp.earnmoney'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.tzp.earnmoney"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.processors'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment:2.5.3"
+    implementation "androidx.navigation:navigation-ui:2.5.3"
+
+    // ViewModel and LiveData
+    //  implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    def lifecycle_version = "2.5.1"
+    def arch_version = "2.1.0"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+
+    //room
+    implementation "androidx.room:room-runtime:2.5.0"
+    annotationProcessor "androidx.room:room-compiler:2.5.0"
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:2.5.0"
+
+    //Work manager
+    // (Java only)
+    implementation "androidx.work:work-runtime:2.8.0"
+    // optional - RxJava2 support
+    //implementation "androidx.work:work-rxjava2:2.8.0"
+
+    // Retrofit dependencies
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+//Rx Java
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+//Pagination
+    implementation "androidx.paging:paging-runtime:3.1.1"
+    implementation "androidx.paging:paging-rxjava2:3.1.1"
+//Lottie anim
+    implementation 'com.airbnb.android:lottie:6.0.0'
+//Circle Image View
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+//Dagger2
+/*    implementation 'com.google.dagger:dagger:2.45'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.45'
+    implementation 'com.google.android.material:material:1.8.0'*/
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    implementation "com.google.dagger:hilt-compiler:2.44"
+
+/*//Dagger
+    implementation 'com.google.dagger:dagger-android:2.x'
+    implementation 'com.google.dagger:dagger-android-support:2.x'
+    // if you use the support libraries
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.x'
+//Cloud Functions
+    implementation "https://firebase.google.com/docs/functions/"
+//Cloud Messaging
+    implementation "com.google.firebase:firebase-messaging:23.1.1"
+//Cloud storage
+    implementation "com.google.firebase:firebase-storage:20.1.0"
+//Authentication
+    implementation "com.google.firebase:firebase-auth:21.1.0"
+//Cloud Firestore
+    implementation "com.google.firebase:firebase-firestore:24.4.3"
+//Realtime Database
+    implementation "com.google.firebase:firebase-database:20.1.0"
+//Firebase Core
+    implementation "com.google.firebase:firebase-core:21.1.1"
+//Animation & transitions
+    implementation "androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03" //dynamic animation
+    implementation "androidx.transition:transition:1.4.1"
+    //noinspection GradleCompatible
+    implementation "com.android.support:support-emoji:28.0.0"*/
+/*//ML kit
+//Vision APIs
+    implementation "com.google.firebase:firebase-ml-vision:24.1.0"
+//Image Labeling Model
+    implementation "com.google.firebase:firebase-ml-vision-image-label-model:20.0.2"
+//Face Detection Model
+    implementation "com.google.firebase:firebase-ml-vision-face-model:20.0.2"
+//Natural Language APIs
+    implementation "com.google.firebase:firebase-ml-natural-language:22.0.1"
+//Language Identification Model
+    implementation "com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.8"
+//Smart Reply Model
+    implementation "com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.8"
+//Custom Model APIs
+    implementation "com.google.firebase:firebase-ml-model-interpreter:22.0.4"*/
+
+}
